@@ -637,25 +637,7 @@ const menuBtn = document.getElementById("menuBtn");
 const sidebar = document.querySelector(".sidebar");
 
 if (menuBtn && sidebar) {
-    menuBtn.onclick = function () {
-        sidebar.classList.toggle("show");
-    };
-}
-
-const menuBtn = document.getElementById("menuBtn");
-const sidebar = document.querySelector(".sidebar");
-
-if (menuBtn && sidebar) {
-    menuBtn.onclick = function () {
-        sidebar.classList.toggle("show");
-    };
-}
-
-const menuBtn = document.querySelector(".menu-btn");
-const sidebar = document.querySelector(".sidebar");
-
-if (menuBtn && sidebar) {
     menuBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
+        sidebar.classList.toggle("show");
     });
 }
