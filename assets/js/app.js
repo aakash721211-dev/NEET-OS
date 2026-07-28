@@ -637,23 +637,9 @@ const menuBtn = document.getElementById("menuBtn");
 const sidebar = document.querySelector(".sidebar");
 
 if (menuBtn && sidebar) {
-
-    menuBtn.addEventListener("click", () => {
+    menuBtn.onclick = function () {
         sidebar.classList.toggle("show");
-    });
-
-    document.addEventListener("click", (e) => {
-
-        if (
-            window.innerWidth <= 900 &&
-            !sidebar.contains(e.target) &&
-            !menuBtn.contains(e.target)
-        ) {
-            sidebar.classList.remove("show");
-        }
-
-    });
-
+    };
 }
 
 const menuBtn = document.getElementById("menuBtn");
