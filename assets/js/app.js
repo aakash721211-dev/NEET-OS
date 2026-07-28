@@ -655,3 +655,12 @@ if (menuBtn && sidebar) {
     });
 
 }
+
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.querySelector(".sidebar");
+
+if (menuBtn && sidebar) {
+    menuBtn.onclick = function () {
+        sidebar.classList.toggle("show");
+    };
+}

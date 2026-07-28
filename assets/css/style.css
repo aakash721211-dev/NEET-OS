@@ -837,3 +837,12 @@ body{
     }
 
 }
+
+.sidebar{
+    z-index:1000;
+}
+
+.menu-btn{
+    position:relative;
+    z-index:1101;
+}
