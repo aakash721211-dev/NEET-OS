@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mock Test</title>
+
+    <link rel="stylesheet" href="../assets/css/mocktest.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Mock Test</h1>
+
+            <button id="addTestBtn">
+                + Add Test
+            </button>
+        </div>
+
+        <div class="searchBox">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Test..."
+            >
+        </div>
+
+        <div id="testList">
+           
+
+</div>
+
+ <div id="testModal" class="modal">
+
+    <div class="modalContent">
+
+        <h2>Add Mock Test</h2>
+
+        <input
+            type="text"
+            id="testName"
+            placeholder="Test Name"
+        >
+
+        <input
+            type="number"
+            id="totalQuestions"
+            placeholder="Total Questions"
+        >
+
+        <input
+            type="number"
+            id="correctQuestions"
+            placeholder="Correct Questions"
+        >
+
+        <input
+            type="number"
+            id="wrongQuestions"
+            placeholder="Wrong Questions"
+        >
+
+        <div class="btnGroup">
+
+            <button id="saveTestBtn">
+                Save Test
+            </button>
+
+            <button id="closeModalBtn">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+        </div>
+
+    </div>
+
+    <script src="../assets/js/mocktest.js"></script>
+</body>
+</html>

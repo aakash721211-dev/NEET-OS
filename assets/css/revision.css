@@ -1,0 +1,95 @@
+/* ==========================
+   Revision Page
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:#fff;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:30px;
+}
+
+#revisionList{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.revision-card{
+    background:#1e293b;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.revision-card h3{
+    color:#38bdf8;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.revision-card p{
+    color:#cbd5e1;
+    margin:8px 0;
+    font-size:15px;
+}
+
+.completeRevisionBtn{
+    margin-top:18px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#22c55e;
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.completeRevisionBtn:hover{
+    background:#16a34a;
+}
+
+.empty-state{
+    background:#1e293b;
+    border-radius:18px;
+    padding:40px 20px;
+    text-align:center;
+    color:#94a3b8;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .revision-card{
+        padding:18px;
+    }
+
+    .revision-card h3{
+        font-size:20px;
+    }
+
+}

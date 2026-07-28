@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEET OS</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>NEET OS</h2>
+            <p>Study Smart</p>
+        </div>
+
+        <nav>
+
+            <a href="index.html" class="active">
+    🏠 Dashboard
+</a>
+
+<a href="pages/subjects.html">
+    📚 Subjects
+</a>
+
+<a href="pages/planner.html">
+    📝 Planner
+</a>
+
+<a href="pages/timer.html">
+    ⏱ Study Timer
+</a>
+
+<a href="pages/revision.html">
+    🔄 Revision
+</a>
+
+<a href="pages/analytics.html">
+    📊 Analytics
+</a>
+
+<a href="pages/mocktest.html">
+    🧪 Mock Tests
+</a>
+
+<a href="pages/notes.html">
+    📒 Notes
+</a>
+
+<a href="pages/settings.html">
+    ⚙ Settings
+</a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    👋 Good Morning
+                </h1>
+
+                <p>
+                    Welcome back. Let's crack NEET!
+                </p>
+
+            </div>
+
+            <div class="profile">
+
+                👤
+
+            </div>
+
+        </header>
+
+        <!-- Today's Mission -->
+
+        <section class="mission">
+
+    <h2>
+        🎯 Today's Mission
+    </h2>
+
+    <ul id="missionList">
+
+        <li>No Mission Today</li>
+
+    </ul>
+
+</section>
+
+        <!-- Dashboard Cards -->
+
+        <section class="cards">
+
+            <div class="study-streak-card">
+
+    <h3>🔥 Study Streak</h3>
+
+    <p>
+        🔥 Current Streak
+        <span id="streakText"></span>
+    </p>
+
+    <p>
+        🏆 Best Streak
+        <span id="bestStreakText"></span>
+    </p>
+
+    <p>
+        📅 Today
+        <span id="todayStatus"></span>
+    </p>
+
+    <p>
+        🎯 Next Goal
+        <span id="nextGoal"></span>
+    </p>
+
+</div>
+
+<div class="card">
+
+    <h3>📅 Today's Study</h3>
+
+    <p id="todayStudyTime">
+        0h 0m
+    </p>
+
+</div>
+            
+            <div class="card">
+    <h3>📊 Average Score</h3>
+    <h1 id="averageScore">0</h1>
+</div>
+
+            <div class="card">
+    <h3>🎯 Accuracy</h3>
+    <h1 id="averageAccuracy">0%</h1>
+</div>
+
+            <div class="card">
+                <h3>📅 Countdown</h3>
+                <h1>281 Days</h1>
+            </div>
+
+            <div class="card">
+
+    <h3>📋 Today's Plan</h3>
+
+    <h1 id="todayPlanPercent">
+
+        0%
+
+    </h1>
+
+</div>
+
+        </section>
+
+
+        
+        <!-- Dashboard Grid -->
+
+<div class="card revision-card">
+
+    <h3>
+        🔄 Today's Revision
+    </h3>
+
+    <h1 id="revisionDueCount">
+        0
+    </h1>
+
+</div>
+
+<section class="dashboard-grid">
+
+    <!-- Progress -->
+
+    <div class="panel">
+
+        <h2>⭕ Daily Progress</h2>
+
+       <div class="progress-ring" id="dailyProgressRing">
+    <div class="inner" id="dailyProgressText">0%</div>
+</div>
+
+    </div>
+
+    <!-- Weekly Graph -->
+
+    <div class="panel">
+
+        <h2>📈 Weekly Study</h2>
+
+        <div class="graph">
+
+    <div class="bar" id="day0"></div>
+
+    <div class="bar" id="day1"></div>
+
+    <div class="bar" id="day2"></div>
+
+    <div class="bar" id="day3"></div>
+
+    <div class="bar" id="day4"></div>
+
+    <div class="bar" id="day5"></div>
+
+    <div class="bar" id="day6"></div>
+
+</div>
+
+    </div>
+
+</section>
+
+<!-- Today's Tasks -->
+
+<section class="panel" style="margin-top:20px;">
+
+    <h2>📝 Today's Tasks</h2>
+
+    <div id="todayTaskList">
+
+        No Tasks Today
+
+    </div>
+
+</section>
+
+<div class="dashboard-card">
+    <h3>📊 Study Progress</h3>
+
+    <p>Total Chapters: <span id="totalChapters">0</span></p>
+    <p>📖 Studying: <span id="studyingCount">0</span></p>
+    <p>✅ Completed: <span id="completedCount">0</span></p>
+    <p>⭐ Mastered: <span id="masteredCount">0</span></p>
+
+    <progress id="progressBar" value="0" max="100"></progress>
+
+    <p id="progressText">0%</p>
+</div>
+
+<div class="continue-card">
+
+    <h3>📖 Continue Studying</h3>
+
+    <p>
+        <strong>Chapter:</strong>
+        <span id="continueChapter">No Chapter Selected</span>
+    </p>
+
+    <p>
+        <strong>Status:</strong>
+        <span id="continueStatus">-</span>
+    </p>
+
+    <p>
+        <strong>Study Time:</strong>
+        <span id="continueTime">0m</span>
+    </p>
+
+    <button id="continueBtn">
+        ▶ Continue
+    </button>
+
+</div>
+
+<div class="recent-card">
+
+    <h3>📖 Recent Activity</h3>
+
+    <p>
+        <strong>Chapter:</strong>
+        <span id="recentChapter">No Study Yet</span>
+    </p>
+
+    <p>
+        <strong>Finished:</strong>
+        <span id="recentDate">-</span>
+    </p>
+
+</div>
+
+<div class="history-card">
+
+    <h3>📚 Study History</h3>
+
+    <div id="historyList">
+
+        No Study Sessions Yet
+
+    </div>
+
+</div>
+
+    </main>
+
+</div>
+
+<script src="assets/js/app.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+            .then(() => {
+                console.log("✅ Service Worker Registered");
+            })
+            .catch((err) => {
+                console.error("Service Worker Error:", err);
+            });
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects | NEET OS</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/subjects.css">
+</head>
+<body>
+
+<div class="subjects-page">
+
+    <h1>📚 NEET Subjects</h1>
+
+<div class="search-box">
+    <input
+        type="text"
+        id="chapterSearch"
+        placeholder="🔍 Search Chapter..."
+    >
+</div>
+
+<div class="filter-bar">
+
+    <button class="filter-btn active" data-filter="all">All</button>
+
+    <button class="filter-btn" data-filter="⬜ Not Started">Not Started</button>
+
+    <button class="filter-btn" data-filter="📖 Studying">Studying</button>
+
+    <button class="filter-btn" data-filter="✅ Completed">Completed</button>
+
+    <button class="filter-btn" data-filter="🔄 Revised">Revised</button>
+
+    <button class="filter-btn" data-filter="⭐ Mastered">Mastered</button>
+
+</div>
+
+<div class="progress-section">
+
+    <div class="progress-card">
+        <div class="progress-title">
+            ⚡ Physics
+            <span id="physicsPercent">0%</span>
+        </div>
+
+        <div class="progress-bar">
+            <div id="physicsBar" class="progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="progress-card">
+        <div class="progress-title">
+            🧪 Chemistry
+            <span id="chemistryPercent">0%</span>
+        </div>
+
+        <div class="progress-bar">
+            <div id="chemistryBar" class="progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="progress-card">
+        <div class="progress-title">
+            🌿 Biology
+            <span id="biologyPercent">0%</span>
+        </div>
+
+        <div class="progress-bar">
+            <div id="biologyBar" class="progress-fill"></div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="subject-card physics">
+
+    <h2>⚡ Physics</h2>
+
+    <p>20 Chapters</p>
+
+    <button>Open Subject</button>
+
+    <div class="chapter-list">
+
+        <h3>⚡ Physics Chapters</h3>
+
+        <div class="chapter">
+            <span>1. Physics & Measurement</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>2. Kinematics</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>3. Laws of Motion</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>4. Work, Energy & Power</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>5. Rotational Motion</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>6. Gravitation</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>7. Properties of Solids & Liquids</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>8. Thermodynamics</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>9. Kinetic Theory</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>10. Oscillations & Waves</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>11. Electrostatics</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>12. Current Electricity</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>13. Magnetic Effects of Current & Magnetism</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>14. Electromagnetic Induction & Alternating Current</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>15. Electromagnetic Waves</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>16. Optics</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>17. Dual Nature of Matter & Radiation</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>18. Atoms & Nuclei</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>19. Electronic Devices</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>20. Experimental Skills</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+    </div>
+
+</div>
+
+    <div class="subject-card chemistry">
+
+    <h2>🧪 Chemistry</h2>
+
+    <p>20 Chapters</p>
+
+    <button>Open Subject</button>
+
+    <div class="chapter-list">
+
+        <h3>Physical Chemistry</h3>
+
+        <div class="chapter">
+            <span>1. Some Basic Concepts of Chemistry</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>2. Structure of Atom</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>3. Chemical Bonding & Molecular Structure</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>4. States of Matter</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>5. Thermodynamics</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>6. Equilibrium</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>7. Redox Reactions</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>8. Solutions</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>9. Electrochemistry</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>10. Chemical Kinetics</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Inorganic Chemistry</h3>
+
+        <div class="chapter">
+            <span>11. Classification of Elements & Periodicity</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>12. p-Block Elements</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>13. d & f Block Elements</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>14. Coordination Compounds</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Organic Chemistry</h3>
+
+        <div class="chapter">
+            <span>15. General Organic Chemistry (GOC)</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>16. Hydrocarbons</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>17. Haloalkanes & Haloarenes</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>18. Alcohols, Phenols & Ethers</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>19. Aldehydes, Ketones & Carboxylic Acids</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>20. Amines & Biomolecules</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+    </div>
+
+</div>
+    <div class="subject-card biology">
+
+    <h2>🌿 Biology</h2>
+
+    <p>10 Units</p>
+
+    <button>Open Subject</button>
+
+    <div class="chapter-list">
+
+        <h3>Unit 1 : Diversity in Living World</h3>
+
+        <div class="chapter">
+            <span>1. The Living World</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>2. Biological Classification</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>3. Plant Kingdom</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>4. Animal Kingdom</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 2 : Structural Organisation</h3>
+
+        <div class="chapter">
+            <span>5. Morphology of Flowering Plants</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>6. Anatomy of Flowering Plants</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>7. Structural Organisation in Animals</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 3 : Cell Structure & Function</h3>
+
+        <div class="chapter">
+            <span>8. Cell: The Unit of Life</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>9. Biomolecules</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>10. Cell Cycle & Cell Division</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 4 : Plant Physiology</h3>
+
+        <div class="chapter">
+            <span>11. Transport in Plants</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>12. Mineral Nutrition</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>13. Photosynthesis</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>14. Respiration in Plants</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>15. Plant Growth & Development</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 5 : Human Physiology</h3>
+
+        <div class="chapter">
+            <span>16. Digestion & Absorption</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>17. Breathing & Exchange of Gases</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>18. Body Fluids & Circulation</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>19. Excretory Products</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>20. Locomotion & Movement</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>21. Neural Control & Coordination</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>22. Chemical Coordination & Integration</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 6 : Reproduction</h3>
+
+        <div class="chapter">
+            <span>23. Reproduction in Organisms</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>24. Sexual Reproduction in Flowering Plants</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>25. Human Reproduction</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>26. Reproductive Health</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 7 : Genetics & Evolution</h3>
+
+        <div class="chapter">
+            <span>27. Principles of Inheritance & Variation</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>28. Molecular Basis of Inheritance</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>29. Evolution</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 8 : Biology in Human Welfare</h3>
+
+        <div class="chapter">
+            <span>30. Human Health & Disease</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>31. Microbes in Human Welfare</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 9 : Biotechnology</h3>
+
+        <div class="chapter">
+            <span>32. Biotechnology: Principles & Processes</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>33. Biotechnology & Its Applications</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <h3>Unit 10 : Ecology & Environment</h3>
+
+        <div class="chapter">
+            <span>34. Organisms & Populations</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>35. Ecosystem</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>36. Biodiversity & Conservation</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+        <div class="chapter">
+            <span>37. Environmental Issues</span>
+            <button class="study-btn">Study</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../assets/js/revision.js"></script>
+<script src="../assets/js/subjects.js"></script>
+
+</body>
+</html>     

@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Timer | NEET OS</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/timer.css">
+</head>
+<body>
+
+<div class="timer-page">
+
+    <h1>⏱ Study Timer</h1>
+<h2 id="goal">No Chapter Selected</h2>
+    <div class="timer-box">
+
+        <div id="timerDisplay" class="timer-display">
+            00:00:00
+        </div>
+
+        <div class="timer-buttons">
+
+            <button id="startBtn">▶ Start</button>
+
+            <button id="pauseBtn">⏸ Pause</button>
+
+            <button id="resetBtn">🔄 Reset</button>
+            <button id="finishBtn" class="finish-btn">
+    ✅ Finish Study
+</button>
+
+        </div>
+
+    </div>
+<div class="panel">
+
+    <h2>🍅 Focus Mode</h2>
+
+    <div class="timer-buttons">
+
+        <button id="pomodoro25">25 / 5</button>
+
+        <button id="pomodoro50">50 / 10</button>
+
+        <button id="pomodoro90">90 / 15</button>
+
+    </div>
+
+</div>
+    <div class="goal-box">
+
+        <h2>🎯 Today's Goal</h2>
+
+        <p>10 Hours</p>
+<div class="progress-container">
+
+    <div id="goalProgress" class="progress-bar"></div>
+
+</div>
+
+<p id="goalText">0h / 10h Completed</p>
+
+    </div>
+
+</div>
+
+<div id="summaryModal" class="summary-modal">
+
+    <div class="summary-box">
+
+        <h2>🎉 Session Complete</h2>
+
+        <p><strong>📚 Chapter</strong></p>
+        <p id="summaryChapter"></p>
+
+        <p><strong>⏱ Study Time</strong></p>
+        <p id="summaryTime"></p>
+
+        <button id="summaryClose">
+            Back to Dashboard
+        </button>
+
+    </div>
+
+</div>
+
+<script src="../assets/js/timer.js"></script>
+
+</body>
+</html>
