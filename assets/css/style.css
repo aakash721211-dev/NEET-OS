@@ -790,3 +790,50 @@ body{
 }
 
 }
+
+/* ===========================
+   Hamburger Menu
+=========================== */
+
+.menu-btn{
+    display:none;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:10px 14px;
+    font-size:22px;
+    cursor:pointer;
+}
+
+@media (max-width:900px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .sidebar{
+        display:block;
+        position:fixed;
+        left:-280px;
+        top:0;
+        width:260px;
+        height:100vh;
+        z-index:1000;
+        transition:left .3s ease;
+    }
+
+    .sidebar.show{
+        left:0;
+    }
+
+    .main{
+        width:100%;
+        padding:18px;
+    }
+
+    .topbar{
+        gap:15px;
+    }
+
+}
