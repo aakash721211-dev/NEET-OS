@@ -628,3 +628,165 @@ body{
 .revision-card{
     margin-top:20px;
 }
+
+
+/* ==========================================
+   NEET OS Responsive Layout v2
+========================================== */
+
+/* Large Tablet */
+@media (max-width:1200px){
+
+.sidebar{
+    width:220px;
+}
+
+.main{
+    padding:25px;
+}
+
+.cards{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.dashboard-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+/* Tablet Landscape + Desktop Mode Phone */
+@media (max-width:992px){
+
+.app{
+    display:flex;
+}
+
+.sidebar{
+    width:80px;
+    min-width:80px;
+    padding:20px 10px;
+}
+
+.logo p{
+    display:none;
+}
+
+.logo h2{
+    font-size:18px;
+    text-align:center;
+}
+
+.sidebar nav a{
+    padding:12px;
+    font-size:0;
+    text-align:center;
+}
+
+.sidebar nav a::first-letter{
+    font-size:22px;
+}
+
+.main{
+    padding:20px;
+}
+
+.cards{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.dashboard-grid{
+    grid-template-columns:1fr;
+}
+
+.progress-ring{
+    width:150px;
+    height:150px;
+}
+
+.progress-ring .inner{
+    width:110px;
+    height:110px;
+}
+
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+.sidebar{
+    display:none;
+}
+
+.main{
+    width:100%;
+    padding:16px;
+}
+
+.topbar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.topbar h1{
+    font-size:28px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.dashboard-grid{
+    grid-template-columns:1fr;
+}
+
+.graph{
+    overflow-x:auto;
+}
+
+.card,
+.panel,
+.study-streak-card,
+.dashboard-card,
+.continue-card,
+.recent-card,
+.history-card{
+    width:100%;
+}
+
+}
+
+/* Landscape Phone */
+@media (max-height:600px) and (orientation:landscape){
+
+.sidebar{
+    display:block;
+    width:80px;
+}
+
+.logo p{
+    display:none;
+}
+
+.logo h2{
+    font-size:18px;
+}
+
+.sidebar nav a{
+    font-size:0;
+}
+
+.sidebar nav a::first-letter{
+    font-size:22px;
+}
+
+.main{
+    padding:18px;
+}
+
+.cards{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
