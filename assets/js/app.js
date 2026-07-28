@@ -629,15 +629,18 @@ window.addEventListener("storage", () => {
 
 });
 
-// ==========================
+
 // Sidebar Toggle
-// ==========================
+document.addEventListener("DOMContentLoaded", function () {
 
-const menuBtn = document.getElementById("menuBtn");
-const sidebar = document.querySelector(".sidebar");
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.querySelector(".sidebar");
 
-if (menuBtn && sidebar) {
-    menuBtn.addEventListener("click", () => {
+    if (!menuBtn || !sidebar) return;
+
+    menuBtn.addEventListener("click", function () {
         sidebar.classList.toggle("show");
+        console.log("Menu clicked");
     });
-}
+
+});
