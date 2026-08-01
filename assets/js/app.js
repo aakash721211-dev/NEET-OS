@@ -333,10 +333,7 @@ function loadTotalStudyTime(){
 loadTodayStudyTime();
 
 // Auto Refresh Today's Study Time
-setInterval(() => {
-    loadTodayStudyTime();
-    loadTotalStudyTime();
-}, 1000);
+setInterval(refreshDashboard,1000);
 
 function loadWeeklyStudy() {
 
@@ -643,5 +640,33 @@ document.addEventListener("DOMContentLoaded", function () {
         sidebar.classList.toggle("show");
         console.log("Menu clicked");
     });
+
+});
+
+// ==========================
+// Dashboard Auto Refresh
+// ==========================
+
+function refreshDashboard(){
+
+    updateDailyProgress();
+
+    loadTodayStudyTime();
+
+    loadTotalStudyTime();
+
+    loadWeeklyStudy();
+
+}
+
+window.addEventListener("focus", refreshDashboard);
+
+document.addEventListener("visibilitychange", () => {
+
+    if(!document.hidden){
+
+        refreshDashboard();
+
+    }
 
 });
