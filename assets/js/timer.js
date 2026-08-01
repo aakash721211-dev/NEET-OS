@@ -111,10 +111,6 @@ localStorage.setItem(
     generalSeconds
 );
 
-localStorage.setItem(
-    "generalTimerStartTime",
-    Date.now()
-);
 
 const today = new Date().toLocaleDateString();
 
@@ -172,6 +168,7 @@ generalPauseBtn.onclick = function(){
 
     localStorage.setItem("generalTimerRunning","false");
 localStorage.setItem("generalTimerElapsed",generalSeconds);
+localStorage.removeItem("generalTimerStartTime");
 
 };
 
@@ -592,13 +589,13 @@ localStorage.getItem("generalTimerRunning");
 if(generalRunning === "true"){
 
     const start =
-    Number(localStorage.getItem("generalTimerStartTime"));
+Number(localStorage.getItem("generalTimerStartTime")) || Date.now();
 
-    const elapsed =
-    Number(localStorage.getItem("generalTimerElapsed")) || 0;
+const elapsed =
+Number(localStorage.getItem("generalTimerElapsed")) || 0;
 
-    generalSeconds =
-    elapsed + Math.floor((Date.now()-start)/1000);
+generalSeconds =
+elapsed + Math.floor((Date.now() - start) / 1000);
 
     updateGeneralDisplay();
 
@@ -613,10 +610,6 @@ localStorage.setItem(
     generalSeconds
 );
 
-localStorage.setItem(
-    "generalTimerStartTime",
-    Date.now()
-);
 
         localStorage.setItem(
             "generalStudyTime",
