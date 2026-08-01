@@ -46,7 +46,53 @@ document.querySelectorAll(".chapter").forEach(chapter => {
 
     chapter.appendChild(time);
 
+    const resumeBtn = chapter.querySelector(".resume-btn");
+
+if (resumeBtn) {
+
+    if (savedTime > 0) {
+
+        resumeBtn.style.display = "inline-block";
+
+    } else {
+
+        resumeBtn.style.display = "none";
+
+    }
+
+}
+
 });
+
+// ==========================
+// Resume Button
+// ==========================
+
+document.querySelectorAll(".chapter").forEach(chapter => {
+
+    const name = chapter.querySelector("span").innerText;
+
+    const resume = document.createElement("button");
+
+    resume.className = "resume-btn";
+
+    resume.innerHTML = "▶ Resume";
+
+    resume.onclick = function(){
+
+        localStorage.setItem(
+            "currentChapter",
+            name
+        );
+
+        window.location.href = "timer.html";
+
+    };
+
+    chapter.appendChild(resume);
+
+});
+
 
 // All Study Buttons
 
@@ -130,6 +176,15 @@ window.addEventListener("focus", () => {
         if(time){
             time.innerHTML = "⏱ " + hrs + "h " + mins + "m";
         }
+
+        const resumeBtn = chapter.querySelector(".resume-btn");
+
+if (resumeBtn) {
+
+    resumeBtn.style.display =
+        savedTime > 0 ? "inline-block" : "none";
+
+}
 
     });
 

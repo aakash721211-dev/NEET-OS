@@ -184,3 +184,151 @@
     cursor:pointer;
 
 }
+
+/* ==========================
+   General Timer Finish Button
+========================== */
+
+.general-timer-card .finish-btn{
+
+    background:#22c55e;
+
+    color:#fff;
+
+}
+
+.general-timer-card .finish-btn:hover{
+
+    background:#16a34a;
+
+}
+
+.general-timer-card .timer-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:12px;
+
+}
+
+.general-timer-card .timer-buttons button{
+
+    flex:1;
+
+    min-width:120px;
+
+}
+
+/* ==========================
+   General Study Timer Design
+========================== */
+
+.general-timer-card{
+
+    background:#1e293b;
+    border-radius:22px;
+    padding:35px;
+    margin-bottom:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+.general-timer-card h2{
+
+    color:#38bdf8;
+    margin-bottom:20px;
+    font-size:28px;
+
+}
+
+.general-timer-card .timer-display{
+
+    font-size:64px;
+    font-weight:700;
+    letter-spacing:4px;
+    margin:25px 0;
+    color:#fff;
+
+}
+
+.general-timer-card .timer-buttons{
+
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+
+}
+
+.general-timer-card .timer-buttons button{
+
+    width:170px;
+    height:55px;
+    border:none;
+    border-radius:12px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.general-timer-card .timer-buttons button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+#generalStartBtn{
+
+    background:#2563eb;
+    color:#fff;
+
+}
+
+#generalPauseBtn{
+
+    background:#2563eb;
+    color:#fff;
+
+}
+
+#generalResetBtn{
+
+    background:#2563eb;
+    color:#fff;
+
+}
+
+#generalFinishBtn{
+
+    background:#22c55e;
+    color:#fff;
+
+}
+
+#generalFinishBtn:hover{
+
+    background:#16a34a;
+
+}
+
+@media(max-width:768px){
+
+    .general-timer-card .timer-display{
+
+        font-size:48px;
+
+    }
+
+    .general-timer-card .timer-buttons button{
+
+        width:100%;
+
+    }
+
+}

@@ -126,3 +126,37 @@
     background:#22c55e;
     transition:.4s;
 }
+
+/* ==========================
+   Resume Button
+========================== */
+
+.resume-btn{
+
+    margin-top:8px;
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.resume-btn:hover{
+
+    background:#16a34a;
+
+}

@@ -335,6 +335,7 @@ loadTodayStudyTime();
 // Auto Refresh Today's Study Time
 setInterval(() => {
     loadTodayStudyTime();
+    loadTotalStudyTime();
 }, 1000);
 
 function loadWeeklyStudy() {
