@@ -90,99 +90,107 @@ updateGeneralDisplay();
 // General Timer Events
 // ==========================
 
-generalStartBtn.onclick = function(){
+generalStartBtn.onclick = function () {
 
-    if(generalTimer) return;
+    if (generalTimer !== null) return;
 
-if(localStorage.getItem("generalTimerRunning") === "true"){
-    return;
-}
+    localStorage.setItem("generalTimerRunning", "true");
 
-    localStorage.setItem("generalTimerRunning","true");
-localStorage.setItem("generalTimerStartTime",Date.now());
+    localStorage.setItem(
+        "generalTimerStartTime",
+        Date.now()
+    );
 
+    localStorage.setItem(
+        "generalTimerElapsed",
+        generalSeconds
+    );
 
-    generalTimer = setInterval(function(){
+    generalTimer = setInterval(() => {
 
         generalSeconds++;
 
-localStorage.setItem(
-    "generalTimerElapsed",
-    generalSeconds
-);
+        const today = new Date().toLocaleDateString();
 
+        if (localStorage.getItem("todayStudyDate") !== today) {
 
-const today = new Date().toLocaleDateString();
+            localStorage.setItem("todayStudyDate", today);
+            localStorage.setItem("todayStudyTime", 0);
 
-if(localStorage.getItem("todayStudyDate") !== today){
+        }
 
-    localStorage.setItem("todayStudyDate", today);
-    localStorage.setItem("todayStudyTime", 0);
+        localStorage.setItem(
+            "generalStudyTime",
+            generalSeconds
+        );
 
-}
+        localStorage.setItem(
+            "generalTimerElapsed",
+            generalSeconds
+        );
+                localStorage.setItem(
+            "todayStudyTime",
+            (Number(localStorage.getItem("todayStudyTime")) || 0) + 1
+        );
 
-localStorage.setItem(
-    "generalStudyTime",
-    generalSeconds
-);
+        localStorage.setItem(
+            "study_" + today,
+            Number(localStorage.getItem("todayStudyTime")) || 0
+        );
 
-localStorage.setItem(
-    "todayStudyTime",
-    (Number(localStorage.getItem("todayStudyTime")) || 0) + 1
-);
+        localStorage.setItem(
+            "totalStudyTime",
+            (Number(localStorage.getItem("totalStudyTime")) || 0) + 1
+        );
 
-localStorage.setItem(
-    "study_" + today,
-    Number(localStorage.getItem("todayStudyTime")) || 0
-);
+        if (
+            Number(localStorage.getItem("todayStudyTime")) >= 18000
+        ) {
 
-localStorage.setItem(
-    "totalStudyTime",
-    (Number(localStorage.getItem("totalStudyTime")) || 0) + 1
-);
+            localStorage.setItem("todayStudied", "true");
 
-if(
-    Number(localStorage.getItem("todayStudyTime")) >= 18000
-){
+            localStorage.setItem(
+                "lastStudyDate",
+                new Date().toDateString()
+            );
 
-    localStorage.setItem("todayStudied","true");
+        }
+
+        updateGeneralDisplay();
+
+    }, 1000);
+
+};
+
+generalPauseBtn.onclick = function () {
+
+    clearInterval(generalTimer);
+
+    generalTimer = null;
 
     localStorage.setItem(
-        "lastStudyDate",
-        new Date().toDateString()
+        "generalTimerRunning",
+        "false"
     );
 
-}
-
-updateGeneralDisplay();
-
-    },1000);
+    localStorage.setItem(
+        "generalTimerElapsed",
+        generalSeconds
+    );
 
 };
 
-generalPauseBtn.onclick = function(){
+generalResetBtn.onclick = function () {
 
     clearInterval(generalTimer);
 
     generalTimer = null;
-
-    localStorage.setItem("generalTimerRunning","false");
-localStorage.setItem("generalTimerElapsed",generalSeconds);
-localStorage.removeItem("generalTimerStartTime");
-
-};
-
-generalResetBtn.onclick = function(){
-
-    clearInterval(generalTimer);
-
-    generalTimer = null;
-
-    localStorage.removeItem("generalTimerRunning");
-localStorage.removeItem("generalTimerStartTime");
-localStorage.removeItem("generalTimerElapsed");
 
     generalSeconds = 0;
+
+    localStorage.removeItem("generalTimerRunning");
+    localStorage.removeItem("generalTimerStartTime");
+    localStorage.removeItem("generalTimerElapsed");
 
     localStorage.setItem(
         "generalStudyTime",
@@ -192,162 +200,6 @@ localStorage.removeItem("generalTimerElapsed");
     updateGeneralDisplay();
 
 };
-
-function updateDisplay() {
-
-    let hrs = Math.floor(seconds / 3600);
-    let mins = Math.floor((seconds % 3600) / 60);
-    let secs = seconds % 60;
-
-    display.textContent =
-        String(hrs).padStart(2, "0") + ":" +
-        String(mins).padStart(2, "0") + ":" +
-        String(secs).padStart(2, "0");
-}
-
-function updateStudyTime(){
-
-    const today = new Date().toLocaleDateString();
-
-    if(localStorage.getItem("todayStudyDate") !== today){
-
-        localStorage.setItem("todayStudyDate", today);
-        localStorage.setItem("todayStudyTime", 0);
-
-    }
-
-const lastKey = currentChapter + "_lastSecondSaved";
-
-const oldSeconds =
-Number(localStorage.getItem(lastKey)) || 0;
-
-localStorage.setItem(
-    "todayStudyTime",
-    (Number(localStorage.getItem("todayStudyTime")) || 0) + (seconds - oldSeconds)
-);
-
-localStorage.setItem(lastKey, seconds);
-localStorage.setItem(
-    "study_" + today,
-    Number(localStorage.getItem("todayStudyTime")) || 0
-);
-
-    localStorage.setItem(
-        "totalStudyTime",
-        (Number(localStorage.getItem("totalStudyTime")) || 0) + 1
-    );
-    const weekDay = new Date().getDay();
-
-const weekKey = "week_" + weekDay;
-
-localStorage.setItem(
-    weekKey,
-    (Number(localStorage.getItem(weekKey)) || 0) + 1
-);
-
-}
-
-document.getElementById("startBtn").addEventListener("click", () => {
-
-    if (timer !== null) return;
-
-    localStorage.setItem("timerRunning", "true");
-localStorage.setItem("timerStartTime", Date.now());
-localStorage.setItem("timerElapsed", seconds);
-
-    timer = setInterval(() => {
-   seconds++;
- updateStudyTime();
-
-// Unlock today's streak after 5 hours
-
-const todayTime =
-Number(localStorage.getItem("todayStudyTime")) || 0;
-
-if (todayTime >= 18000) {
-
-    localStorage.setItem("todayStudied", "true");
-
-    localStorage.setItem(
-        "lastStudyDate",
-        new Date().toDateString()
-    );
-
-}
-
-if(currentChapter){
-
-    localStorage.setItem(
-        currentChapter + "_time",
-        seconds
-    );
-
-}
-
-updateDisplay();
-if (seconds >= 3000) {
-
-    clearInterval(timer);
-    timer = null;
-
-    if ("Notification" in window &&
-        Notification.permission === "granted") {
-
-        new Notification("📚 Pomodoro Finished", {
-            body: "Time for a short break!"
-        });
-
-    }
-
-    if (navigator.vibrate) {
-
-        navigator.vibrate([300, 200, 300]);
-
-    }
-
-   alarm.play();
-
-   setTimeout(() => {
-    alert("🎉 50 Minutes Completed!\nTake a 10-minute break.");
- }, 500);
-
-}
-    }, 1000);
-
-});
-
-document.getElementById("pauseBtn").addEventListener("click", () => {
-
-    clearInterval(timer);
-    timer = null;
-
-    localStorage.setItem("timerRunning", "false");
-localStorage.setItem("timerElapsed", seconds);
-
-});
-
-document.getElementById("resetBtn").addEventListener("click", () => {
-
-    clearInterval(timer);
-    timer = null;
-
-    seconds = 0;
-
-    localStorage.removeItem("timerRunning");
-localStorage.removeItem("timerStartTime");
-localStorage.removeItem("timerElapsed");
-   if(currentChapter){
-
-    localStorage.removeItem(
-        currentChapter + "_time"
-    );
-
-}
-    updateDisplay();
-
-});
-
-updateDisplay();
 
 // ==========================
 // Daily Study Time
@@ -586,61 +438,102 @@ window.addEventListener("load", () => {
     const generalRunning =
 localStorage.getItem("generalTimerRunning");
 
-if(generalRunning === "true"){
+if (generalRunning === "true") {
 
-    const start =
-Number(localStorage.getItem("generalTimerStartTime")) || Date.now();
+    const startTime =
+    Number(localStorage.getItem("generalTimerStartTime"));
 
-const elapsed =
-Number(localStorage.getItem("generalTimerElapsed")) || 0;
+    const savedTime =
+    Number(localStorage.getItem("generalTimerElapsed")) || 0;
 
-generalSeconds =
-elapsed + Math.floor((Date.now() - start) / 1000);
+    generalSeconds =
+    savedTime + Math.floor((Date.now() - startTime) / 1000);
+
+    const missed =
+generalSeconds - savedTime;
+
+const today =
+new Date().toLocaleDateString();
+
+localStorage.setItem(
+    "todayStudyTime",
+    (Number(localStorage.getItem("todayStudyTime")) || 0) + missed
+);
+
+localStorage.setItem(
+    "study_" + today,
+    Number(localStorage.getItem("todayStudyTime"))
+);
+
+localStorage.setItem(
+    "totalStudyTime",
+    (Number(localStorage.getItem("totalStudyTime")) || 0) + missed
+);
 
     updateGeneralDisplay();
 
-    if(generalTimer) clearInterval(generalTimer);
+    if (generalTimer) {
 
-    generalTimer = setInterval(function(){
+        clearInterval(generalTimer);
+
+    }
+
+    generalTimer = setInterval(() => {
 
         generalSeconds++;
-
-localStorage.setItem(
-    "generalTimerElapsed",
-    generalSeconds
-);
-
 
         localStorage.setItem(
             "generalStudyTime",
             generalSeconds
         );
 
-       
+        localStorage.setItem(
+            "generalTimerElapsed",
+            generalSeconds
+        );
 
         const today = new Date().toLocaleDateString();
 
+        if (localStorage.getItem("todayStudyDate") !== today) {
+
+            localStorage.setItem("todayStudyDate", today);
+            localStorage.setItem("todayStudyTime", 0);
+
+        }
+
         localStorage.setItem(
             "todayStudyTime",
-            (Number(localStorage.getItem("todayStudyTime"))||0)+1
+            (Number(localStorage.getItem("todayStudyTime")) || 0) + 1
         );
 
         localStorage.setItem(
-            "study_"+today,
-            Number(localStorage.getItem("todayStudyTime"))
+            "study_" + today,
+            Number(localStorage.getItem("todayStudyTime")) || 0
         );
 
         localStorage.setItem(
             "totalStudyTime",
-            (Number(localStorage.getItem("totalStudyTime"))||0)+1
+            (Number(localStorage.getItem("totalStudyTime")) || 0) + 1
         );
+
+        if (
+            Number(localStorage.getItem("todayStudyTime")) >= 18000
+        ) {
+
+            localStorage.setItem("todayStudied", "true");
+
+            localStorage.setItem(
+                "lastStudyDate",
+                new Date().toDateString()
+            );
+
+        }
 
         updateGeneralDisplay();
 
-    },1000);
+    }, 1000);
 
 }
-
     const running = localStorage.getItem("timerRunning");
 
     if (running === "true") {
