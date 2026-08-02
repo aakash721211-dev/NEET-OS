@@ -201,6 +201,135 @@ generalResetBtn.onclick = function () {
 
 };
 
+function updateDisplay() {
+
+    let hrs = Math.floor(seconds / 3600);
+    let mins = Math.floor((seconds % 3600) / 60);
+    let secs = seconds % 60;
+
+    display.textContent =
+        String(hrs).padStart(2, "0") + ":" +
+        String(mins).padStart(2, "0") + ":" +
+        String(secs).padStart(2, "0");
+
+}
+
+function updateStudyTime(){
+
+    const today = new Date().toLocaleDateString();
+
+    if(localStorage.getItem("todayStudyDate") !== today){
+
+        localStorage.setItem("todayStudyDate", today);
+        localStorage.setItem("todayStudyTime", 0);
+
+    }
+
+    const lastKey = currentChapter + "_lastSecondSaved";
+
+    const oldSeconds =
+    Number(localStorage.getItem(lastKey)) || 0;
+
+    const diff = seconds - oldSeconds;
+
+    if(diff > 0){
+
+        localStorage.setItem(
+            "todayStudyTime",
+            (Number(localStorage.getItem("todayStudyTime")) || 0) + diff
+        );
+
+        localStorage.setItem(
+            "study_" + today,
+            Number(localStorage.getItem("todayStudyTime")) || 0
+        );
+
+        localStorage.setItem(
+            "totalStudyTime",
+            (Number(localStorage.getItem("totalStudyTime")) || 0) + diff
+        );
+
+        localStorage.setItem(lastKey, seconds);
+
+    }
+
+}
+
+document.getElementById("startBtn").addEventListener("click", () => {
+
+    if (timer !== null) return;
+
+    localStorage.setItem("timerRunning", "true");
+    localStorage.setItem("timerStartTime", Date.now());
+    localStorage.setItem("timerElapsed", seconds);
+
+    timer = setInterval(() => {
+
+        seconds++;
+
+        updateStudyTime();
+
+        if(currentChapter){
+
+            localStorage.setItem(
+                currentChapter + "_time",
+                seconds
+            );
+
+        }
+
+        updateDisplay();
+
+    }, 1000);
+
+});
+
+document.getElementById("pauseBtn").addEventListener("click", () => {
+
+    clearInterval(timer);
+
+    timer = null;
+
+    localStorage.setItem(
+        "timerRunning",
+        "false"
+    );
+
+    localStorage.setItem(
+        "timerElapsed",
+        seconds
+    );
+
+});
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+
+    clearInterval(timer);
+
+    timer = null;
+
+    seconds = 0;
+
+    localStorage.removeItem("timerRunning");
+    localStorage.removeItem("timerStartTime");
+    localStorage.removeItem("timerElapsed");
+
+    if(currentChapter){
+
+        localStorage.removeItem(
+            currentChapter + "_time"
+        );
+
+        localStorage.removeItem(
+            currentChapter + "_lastSecondSaved"
+        );
+
+    }
+
+    updateDisplay();
+
+});
+
 // ==========================
 // Daily Study Time
 // ==========================
@@ -228,6 +357,8 @@ function saveTodayStudyTime(duration){
     );
 
 }
+
+
 
 // ==========================
 // Pomodoro Presets
